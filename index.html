@@ -56,7 +56,7 @@
         .date {
             font-size: 1.3rem;
             color: #000000;
-            margin-top: 0.8rem;
+            margin-top: 08rem;
             letter-spacing: 1.5px;
             font-weight: 300;
         }
@@ -72,9 +72,9 @@
             gap: 0.8rem;
         }
 
-        .alarm-settings input, .alarm-settings select {
+        .alarm-settings input, .alarm-symbols select {
             padding: 0.5rem;
-            border: 1px solid rgba(255, 255, f255, 0.2); /* Subtle border */
+            border: 1px solid rgba(255, 255, 255, 0.2); /* Subtle border */
             border-radius: 8px;
             font-size: 1rem;
             background: rgba(255, 255, 255, 0.1); /* Transparent background */
@@ -136,17 +136,10 @@
         <div class="alarm-settings">
             <input type="time" id="alarmTime" />
             <select id="alarmMelody">
-                    <option value="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"> - Gentle Chimes</option>
-                    <option value="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3"> - Morning Bells</option>
-                    <option value="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3"> - Soft Piano</option>
-                    <option value="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-4.mp3"> - Ocean Waves</option>
-                    <option value="https://example.com/iam-a-rider.mp3">I R</option>
-                    <option value="https://example.com/jhol-song.mp3">Jl</option>
-                    <option value="https://example.com/shunda-mandi.mp3">s M</option>
-                    <option value="https://example.com/del-kochi-chal.mp3">DKC</option>
-                    <option value="https://example.com/thattathil.mp3">Th</option>
-                </select>
-                
+                <option value="https://freesound.org/data/previews/316/316847_4939433-lq.mp3">Gentle Chimes</option>
+                <option value="https://freesound.org/data/previews/321/321107_1360046-lq.mp3">Morning Bells</option>
+                <option value="https://freesound.org/data/previews/263/263133_4939433-lq.mp3">Soft Piano</option>
+                <option value="https://freesound.org/data/previews/206/206443_3636017-lq.mp3">Ocean Waves</option>
             </select>
             <button onclick="setAlarm()">Set Alarm</button>
             <button onclick="stopAlarm()">Stop Alarm</button>
