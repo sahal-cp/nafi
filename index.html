@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>nafi</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: 'Roboto', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            overflow: hidden;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            transition: background-image 1s ease-in-out;
+        }
+
+        .clock-container {
+            background: rgba(255, 255, 255, 0.05); /* More transparent background */
+            backdrop-filter: blur(8px); /* Subtler blur effect */
+            padding: 2.5rem 4.5rem;
+            border-radius: 25px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.15); /* Slightly more transparent border */
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            0% { opacity: 0; transform: translateY(-20px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        .name {
+            font-size: 2.2rem;
+            color: #000000;
+            margin-bottom: 1.2rem;
+            text-shadow: 0 2px 12px rgba(0, 0, 0, 0.3);
+            font-weight: 700;
+        }
+
+        .time {
+            font-size: 4.8rem;
+            color: #000000;
+            letter-spacing: 3px;
+            margin: 0;
+            text-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
+            font-weight: 500;
+        }
+
+        .date {
+            font-size: 1.3rem;
+            color: #000000;
+            margin-top: 0.8rem;
+            letter-spacing: 1.5px;
+            font-weight: 300;
+        }
+
+        .time:hover {
+            transform: scale(1.05);
+        }
+
+        .alarm-settings {
+            margin-top: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+        }
+
+        .alarm-settings input, .alarm-settings select {
+            padding: 0.5rem;
+            border: 1px solid rgba(255, 255, f255, 0.2); /* Subtle border */
+            border-radius: 8px;
+            font-size: 1rem;
+            background: rgba(255, 255, 255, 0.1); /* Transparent background */
+            color: #000;
+        }
+
+        .alarm-settings button {
+            padding: 0.5rem;
+            border: 1px solid rgba(255, 255, 255, 0.2); /* Subtle border */
+            border-radius: 8px;
+            font-size: 1rem;
+            background: rgba(0, 123, 255, 0.2); /* Transparent with blue tint */
+            color: white;
+            cursor: pointer;
+            transition: background 0.3s, border-color 0.3s;
+        }
+
+        .alarm-settings button:hover {
+            background: rgba(0, 123, 255, 0.4); /* Slightly less transparent on hover */
+            border-color: rgba(255, 255, 255, 0.3);
+        }
+
+        .alarm-status {
+            margin-top: 0.8rem;
+            font-size: 1rem;
+            color: #000000;
+            font-weight: 400;
+        }
+
+        @media (max-width: 600px) {
+            .name {
+                font-size: 1.6rem;
+            }
+
+            .time {
+                font-size: 2.8rem;
+            }
+
+            .clock-container {
+                padding: 1.8rem 2.5rem;
+            }
+
+            .date {
+                font-size: 1rem;
+            }
+
+            .alarm-settings input, .alarm-settings select, .alarm-settings button {
+                font-size: 0.9rem;
+                padding: 0.4rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="clock-container">
+        <div class="name" id="name">اتحاد</div>
+        <div class="time" id="time">12:00:00 AM</div>
+        <div class="date" id="date">January 1, 2025</div>
+        <div class="alarm-settings">
+            <input type="time" id="alarmTime" />
+            <select id="alarmMelody">
+                    <option value="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"> - Gentle Chimes</option>
+                    <option value="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3"> - Morning Bells</option>
+                    <option value="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3"> - Soft Piano</option>
+                    <option value="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-4.mp3"> - Ocean Waves</option>
+                    <option value="https://example.com/iam-a-rider.mp3">I R</option>
+                    <option value="https://example.com/jhol-song.mp3">Jl</option>
+                    <option value="https://example.com/shunda-mandi.mp3">s M</option>
+                    <option value="https://example.com/del-kochi-chal.mp3">DKC</option>
+                    <option value="https://example.com/thattathil.mp3">Th</option>
+                </select>
+                
+            </select>
+            <button onclick="setAlarm()">Set Alarm</button>
+            <button onclick="stopAlarm()">Stop Alarm</button>
+        </div>
+        <div class="alarm-status" id="alarmStatus">No alarm set</div>
+    </div>
+
+    <audio id="alarmAudio" loop preload="auto"></audio>
+
+    <script>
+        const image4 = "a.jpg";
+        const image5 = "b.jpg";
+        const image6 = "c.jpg";
+        const image7 = "d.jpg";
+        const image8 = "e.jpg";
+        const image9 = "f.jpg";
+        const image10 = "g.jpg";
+        const image11 = "h.jpg";
+        const image12 = "i.jpg";
+        const image13 = "j.jpg";
+        const image14 = "k.jpg";
+        const image15 = "l.jpg";
+        const image16 = "m.jpg";
+        const image17 = "n.jpg";
+        const image18 = "o.jpg";
+        const image19 = "p.jpg";
+        const image20 = "q.jpg";
+        const images = [image4, image5, image6, image7, image8, image9, image10, image11, image12, image13, image14, image15, image16, image17, image18, image19, image20];
+
+        let currentImageIndex = 0;
+        let alarmTime = null;
+        let isAlarmPlaying = false;
+        const audio = document.getElementById('alarmAudio');
+
+        function updateBackground() {
+            document.body.style.backgroundImage = `url(${images[currentImageIndex]})`;
+            currentImageIndex = (currentImageIndex + 1) % images.length;
+        }
+
+        updateBackground();
+        setInterval(updateBackground, 10000);
+
+        function updateClock() {
+            const now = new Date();
+            
+            let hours = now.getHours();
+            const minutes = String(now.getMinutes()).padStart(2, '0');
+            const seconds = String(now.getSeconds()).padStart(2, '0');
+            const period = hours >= 12 ? 'PM' : 'AM';
+            hours = hours % 12 || 12; // Convert to 12-hour format
+            const timeString = `${String(hours).padStart(2, '0')}:${minutes}:${seconds} ${period}`;
+            
+            const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+            const dateString = now.toLocaleDateString('en-US', options);
+            
+            document.getElementById('time').textContent = timeString;
+            document.getElementById('date').textContent = dateString;
+
+            checkAlarm(String(now.getHours()).padStart(2, '0'), minutes);
+        }
+
+        function checkAlarm(currentHours, currentMinutes) {
+            if (alarmTime && !isAlarmPlaying) {
+                const [alarmHours, alarmMinutes] = alarmTime.split(':');
+                if (currentHours === alarmHours && currentMinutes === alarmMinutes) {
+                    playAlarm();
+                }
+            }
+        }
+
+        function playAlarm() {
+            const melody = document.getElementById('alarmMelody').value;
+            try {
+                audio.src = melody;
+                audio.play().catch(error => {
+                    console.error('Error playing audio:', error);
+                    document.getElementById('alarmStatus').textContent = 'Error playing alarm';
+                });
+                isAlarmPlaying = true;
+                document.getElementById('alarmStatus').textContent = 'Alarm ringing!';
+            } catch (error) {
+                console.error('Error setting audio source:', error);
+                document.getElementById('alarmStatus').textContent = 'Error setting alarm';
+            }
+        }
+
+        function stopAlarm() {
+            audio.pause();
+            audio.currentTime = 0;
+            isAlarmPlaying = false;
+            document.getElementById('alarmStatus').textContent = alarmTime ? `Alarm set for ${alarmTime}` : 'No alarm set';
+        }
+
+        function setAlarm() {
+            const timeInput = document.getElementById('alarmTime').value;
+            if (timeInput) {
+                alarmTime = timeInput;
+                document.getElementById('alarmStatus').textContent = `Alarm set for ${alarmTime}`;
+            } else {
+                alarmTime = null;
+                document.getElementById('alarmStatus').textContent = 'No alarm set';
+            }
+        }
+
+        setInterval(updateClock, 1000);
+        updateClock();
+    </script>
+</body>
+</html>
